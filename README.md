@@ -54,9 +54,6 @@
                     <img alt="GitHub" src="https://img.shields.io/badge/GitHub-%2312100E.svg?&style=for-the-badge&logo=Github&logoColor=yellow" width="125px" height="30px" />
                 </a>
             </td>
-            <td>
-                <a href="https://www.linkedin.com/in/julian-centurion/"><img alt="LinkedIn_J" src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" width="125px" height="30px"/>
-            </td>
         </tr>
     </tbody>
 </table>
