@@ -28,7 +28,10 @@
 * 7 - Filtrar a los personajes No-Binarios y mostrar su nombre e identidad
 * 8 - Determinar cuales heroes tienen un poder superior al promedio.
 * 9 - Determinar cual es el maximo de poder y mostrar los nombres de cuales heroes tienen un poder inferior A LA MITAD DE PODER del heroe mas fuerte.
-* 10 - Salir
+* 10 - Ordenar los heroes por poder ascendente y mostrarlos.
+* 11 - Ordenar los heroes por altura descendente y mostrarlos.
+* 12 - Ordenar los heroes por poder y que el usuario decida ASC o DES.
+* 13 - Salir.
 
 ## C - Desarrolla el paquete "app" y modulo "main_app" para luego...
 
