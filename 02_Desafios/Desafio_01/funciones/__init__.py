@@ -13,11 +13,21 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from .funciones import (
-    utn_filtrar_heroes_genero, utn_mostrar_heroe_mayor_altura,
-    utn_mostrar_heroes_mas_fuertes, utn_mostrar_identidades_heroes,
-    utn_mostrar_nombres_heroes, utn_mostrar_heroes_poder_superior_promedio,
+# from .funciones import (
+#     utn_filtrar_heroes_genero, utn_mostrar_heroe_mayor_altura,
+#     utn_mostrar_heroes_mas_fuertes, utn_mostrar_identidades_heroes,
+#     utn_mostrar_nombres_heroes, utn_mostrar_heroes_poder_superior_promedio,
+#     utn_mostrar_heroes_mas_debiles
+# )
+
+from .funciones_utn import (
+    utn_mostrar_nombres_heroes, utn_mostrar_heroe_mayor_altura, utn_mostrar_identidades_heroes,
+    utn_mostrar_heroes_mas_fuertes, utn_filtrar_heroes_genero, utn_mostrar_heroes_poder_superior_promedio,
     utn_mostrar_heroes_mas_debiles
 )
 
-from .auxiliares import play_sound
+from .auxiliares import (
+    play_sound, limpiar_pantalla, DEBUG, imprimir_datos_heroe, 
+    promedio, obtener_mitad_de_maximo, recorrer_y_mostrar
+)
+from .salida_consola import mostrar_menu
