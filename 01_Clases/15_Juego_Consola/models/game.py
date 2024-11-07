@@ -1,8 +1,9 @@
 from .game_features import Stage
 from .players import HumanPlayer, AIPlayer
 from .auxiliar import (
-    cargar_configs, save_score, CONFIGS_PATH, SCORE_FILE_PATH
+    cargar_configs, save_score, CONFIGS_PATH, SCORE_FILE_PATH, END_LEVEL_SOUND
 )
+from .sound import SoundManager
 from UTN_Heroes_Dataset.utn_pp import clear_console, mostrar_matriz_texto_tabla
 import datetime
 
@@ -13,6 +14,7 @@ class JuegoTest:
         self.__player = None
         self.__actual_stage_number = 1
         self.__configs = cargar_configs(CONFIGS_PATH)
+        self.__snd_manager = SoundManager()
         
     def __create_player(self):
         p_name = input('Ingresa tu nombre de jugador: ')
@@ -28,6 +30,7 @@ class JuegoTest:
     def __create_data_score(self):
         data = f'{self.__actual_stage.get_ganador().get_name()},'\
                 f'{self.__actual_stage.get_ganador().get_movements()},'\
+                f'{self.__actual_stage.get_ganador().get_total_movements()},'\
                 f'{self.__actual_stage.get_stage_number()},{datetime.date.today().strftime(format='%Y-%m-%d')}\n'
         return data
     
@@ -38,8 +41,8 @@ class JuegoTest:
     def __sort_matrix_double_criteria(self, matrix: list[list]):
         for index_row in range(len(matrix) - 1):
             for index_next_row in range(index_row + 1, len(matrix)):
-                if int(matrix[index_row][2]) < int(matrix[index_next_row][2]) or\
-                   matrix[index_row][2] == matrix[index_next_row][2] and\
+                if int(matrix[index_row][3]) < int(matrix[index_next_row][3]) or\
+                   matrix[index_row][3] == matrix[index_next_row][3] and\
                    int(matrix[index_row][1]) > int(matrix[index_next_row][1]):
                     
                     matrix[index_row], matrix[index_next_row] =\
@@ -61,7 +64,7 @@ class JuegoTest:
         top_10 = self.get_top(5)
         print(top_10(matrix))
         self.__sort_matrix_double_criteria(matrix)
-        mostrar_matriz_texto_tabla(top_10(matrix), ['Ganador', 'Movimientos', 'Nivel', 'Fecha'])
+        mostrar_matriz_texto_tabla(top_10(matrix), ['Ganador', 'Movimientos', 'Total Movimientos', 'Nivel', 'Fecha'])
     
     def mostrar_menu(self):
         texto =\
@@ -78,14 +81,17 @@ class JuegoTest:
             return self.validar_input(minimo, maximo)
         return int(opcion)
     
+    def __save_and_reset(self):
+        self.__save_score_data()
+        self.__actual_stage.reset_participants()
+        self.__actual_stage_number += 1
+        self.__actual_stage = None
+    
     def __run_stage(self):
         while self.__actual_stage:
             self.__actual_stage.jugar()
             if self.__actual_stage.gano_alguien():
-                self.__save_score_data()
-                self.__actual_stage.reset_participants()
-                self.__actual_stage_number += 1
-                self.__actual_stage = None
+                self.__save_and_reset()
 
             elif self.__actual_stage.get_nivel_terminado():
                 self.__actual_stage = None
@@ -97,6 +103,7 @@ class JuegoTest:
             self.__crear_nivel(stage_config)
             self.__run_stage()
         self.__actual_stage = None
+        self.__snd_manager.play_sound(END_LEVEL_SOUND)
         
     
     def init_juego(self):

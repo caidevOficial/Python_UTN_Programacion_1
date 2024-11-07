@@ -2,10 +2,13 @@ from .tablero import Tablero
 from ..players import (
     Player, HumanPlayer, AIPlayer
 )
-import json
 import random as rd
 from UTN_Heroes_Dataset.utn_pp import clear_console
-
+from ..sound import SoundManager
+from ..auxiliar import (
+    LOSE_SOUND, END_LEVEL_SOUND, SUCCESS_SOUND,
+    MUSIC_SOUND_L1, MUSIC_SOUND_L2, MUSIC_SOUND_L3
+)
 
 class Stage:
     
@@ -15,12 +18,12 @@ class Stage:
         self.__contrincant = enemy
         self.__tablero = None
         self.__dimensiones_tablero = configs.get('dimension_tablero')
-        # self.__cargar_configs()
         self.__crear_tablero()
         self.__turno = player.get_name()
         self.__gano_alguien = False
         self.__ganador = None
         self.__nivel_terminado = False
+        self.__sound_manager = SoundManager()
     
     def show_tablero(self):
         self.__tablero.mostrar_tablero()
@@ -36,13 +39,6 @@ class Stage:
 
     def get_stage_number(self):
         return self.__stage_number
-    
-    def __cargar_configs(self):
-        with open('./config_test.json', 'r') as config:
-            self.__dimensiones_tablero =\
-                json.load(config)\
-                    .get(f'nivel_{self.__stage_number}')\
-                    .get('dimension_tablero')
     
     def __crear_tablero(self):
         self.__tablero = Tablero(self.__dimensiones_tablero)
@@ -151,6 +147,22 @@ class Stage:
         }
         return datos
     
+    def __play_sound(self, participant: Player):
+        if type(participant) == HumanPlayer:
+            sound = SUCCESS_SOUND
+        else: sound = LOSE_SOUND
+        self.__sound_manager.play_sound(sound)
+    
+    def __play_music(self):
+        match self.__stage_number:
+            case 1:
+                music = MUSIC_SOUND_L1
+            case 2:
+                music = MUSIC_SOUND_L2
+            case 3:
+                music = MUSIC_SOUND_L3
+        self.__sound_manager.play_music(music)
+    
     def __chequear_si_gano(self, participant: Player):
         datos = self.__extraer_datos(participant)
         print(datos.get('jugadas'))
@@ -174,8 +186,13 @@ class Stage:
         self.__nivel_terminado = True
         print(mensaje)
     
+    def __update_winner_movements(self):
+        if self.__ganador:
+            self.__ganador.update_total_movements()
+    
     def jugar(self):
         print(f'### Nivel {self.__stage_number} ###')
+        self.__play_music()
         self.__tablero.mostrar_tablero()
         while self.se_puede_jugar():
             self.pedir_movimiento()
@@ -184,6 +201,9 @@ class Stage:
             "Nivel_terminado": self.__nivel_terminado
         }
         print(debug)
+        self.__update_winner_movements()
+        self.__sound_manager.stop_music()
+        self.__play_sound(self.__ganador)
         clear_console()
         self.__tablero.mostrar_tablero()
         print(f'Nivel {self.__stage_number} terminado!')

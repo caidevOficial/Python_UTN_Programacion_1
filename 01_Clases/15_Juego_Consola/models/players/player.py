@@ -5,6 +5,7 @@ class Player:
     def __init__(self, name: str, symbol: str = 'X'):
         self.__name = name
         self.__movements = 0
+        self.__total_movements = 0
         self.__symbol = symbol
         self.__has_win = False
     
@@ -26,3 +27,9 @@ class Player:
     
     def get_symbol(self):
         return self.__symbol
+    
+    def get_total_movements(self):
+        return self.__total_movements
+    
+    def update_total_movements(self):
+        self.__total_movements += self.__movements
