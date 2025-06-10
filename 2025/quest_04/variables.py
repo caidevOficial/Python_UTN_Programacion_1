@@ -1,0 +1,3 @@
+from utn_fra.datasets import lista_diccionario_heroes_small
+
+lista_heroes = lista_diccionario_heroes_small

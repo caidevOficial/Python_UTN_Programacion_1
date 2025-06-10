@@ -1,5 +1,5 @@
 import datetime
-from UTN_FRA.funciones.auxiliares import (
+from utn_fra.funciones.auxiliares import (
     clear_console, show_matrix_as_table
 )
 from .auxiliar import (
@@ -122,7 +122,8 @@ def jugar(juego: dict):
 
 def init_juego():
     juego = crear_juego()
-    while True:
+    correr_juego = True
+    while correr_juego:
         mostrar_menu()
         opcion = validar_input(1,3)
         
@@ -132,5 +133,5 @@ def init_juego():
             case 2:
                 mostrar_score_table()
             case 3:
-                break
+                correr_juego = False
         clear_console()

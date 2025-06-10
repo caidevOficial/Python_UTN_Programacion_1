@@ -7,7 +7,7 @@ from ..players import (
     update_player_total_movements, reset_status_player
 )
 import random as rd
-from UTN_FRA.funciones.auxiliares import clear_console
+from utn_fra.funciones.auxiliares import clear_console
 
 def crear_stage(player: dict, enemy: dict, configs: dict) -> dict:
     stage = {

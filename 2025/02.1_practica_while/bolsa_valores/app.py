@@ -79,12 +79,69 @@ class App(customtkinter.CTk):
     
     def btn_cargar_datos_on_click(self):
         # Desarrollá la lógica debajo
+        """
+        * Nombre
+        * Monto en pesos de la operación (no menor a $10000)
+        * Tipo de instrumento(CEDEAR, BONOS, MEP) 
+        * Cantidad de instrumentos  (no menos de cero) 
+        """
+        
+        limite_datos = 3
+        cantidad_mep_entre_50_y_200 = 0
+        cantidad_maxima_instrumentos = 0
+        nombre_del_millonario = None
+        
+        while limite_datos > 0:
+            
+            # pedir y validar los datos
+            
+            # NOMBRE
+            nombre = None
+            while (nombre == None) or (not nombre.isalpha()):
+                nombre = input('Ingrese su nombre: ')
+            
+            # MONTO
+            monto = None
+            while (monto == None) or (not monto.isdigit()) or (int(monto) < 10000):
+                monto = input('Ingrese un monto [a partir de $10000]: ')
+                
+            monto_int = int(monto)
+            
+            # TIPO
+            tipo = None
+            while (tipo == None) or (not tipo.isalpha() or (
+                tipo != 'CEDEAR' and tipo != 'MEP' and tipo != 'BONOS')):
+                tipo = input('Ingrese su tipo de instrumento (CEDEAR, BONOS, MEP): ').upper()
+            
+            # CANTIDAD
+            cantidad = None
+            while (cantidad == None) or (not cantidad.isdigit()) or (int(cantidad) < 1):
+                cantidad = input('Ingrese la cantidad de instrumentos [a partir de 1]: ')
+                
+            cantidad_int = int(cantidad)
+            
+            limite_datos -= 1
         
         
+            # Procesar datos
+            
+            # 2
+            #! 2) - Cantidad de usuarios que compraron entre 50  y 200 MEP 
+            if tipo == 'MEP' and cantidad_int < 201 and cantidad_int > 50:
+            # if tipo == 'MEP' and (50 < cantidad_int < 201):
+                cantidad_mep_entre_50_y_200 += 1
+
+            #! 7) - Nombre y cantidad de instrumentos del usuario que mas compró
+            if cantidad_maxima_instrumentos == 0 or cantidad_int > cantidad_maxima_instrumentos:
+                cantidad_maxima_instrumentos = cantidad_int
+                nombre_del_millonario = nombre
+                       
         
-        
+        # Mostrar Informes
         # Aca vas a armar tu variable con el texto del informe a entregar
-        data_informe = 'CAMBIAR ESTE TEXTO POR TU INFORME'
+        data_informe =\
+            f"La cantidad de personas que compraron entre 50 y 200 MEP es: {cantidad_mep_entre_50_y_200}\n"\
+            f"La persona que mas instrumentos compro es {nombre_del_millonario} con {cantidad_maxima_instrumentos} unidades."
         alert('Informe', message=data_informe)
     
 
