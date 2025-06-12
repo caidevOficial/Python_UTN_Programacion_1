@@ -42,13 +42,13 @@ lista_frases = [
 historia =\
     """
     El origen del tarot es un enigma, aunque se cree que surge en la Italia del siglo XV como un juego de cartas, 
-    conocido como "cartas del triunfo" o "tarocchi". Estas barajas no tenían un propósito adivinatorio, sino que se utilizaban para el 
+    conocido como "cartas del triunfo" o "tarocchi". Estas barajas no tenian un proposito adivinatorio, sino que se utilizaban para el 
     entretenimiento y la nobleza las encargaba a artistas reconocidos.
 
-    No es hasta el siglo XVIII cuando el tarot adquiere una connotación esotérica y se relaciona con la adivinación. 
-    Etteilla (Jean-Baptiste Alliette) y Antoine Court de Gébelin fueron figuras clave en esta transformación, asociando el tarot con el 
-    antiguo Egipto y la cábala. Durante el siglo XIX, con el auge del ocultismo, barajas como el Tarot de Marsella se popularizaron, 
+    No es hasta el siglo XVIII cuando el tarot adquiere una connotacion esoterica y se relaciona con la adivinacion. 
+    Etteilla (Jean-Baptiste Alliette) y Antoine Court de Gebelin fueron figuras clave en esta transformacion, asociando el tarot con el 
+    antiguo Egipto y la cabala. Durante el siglo XIX, con el auge del ocultismo, barajas como el Tarot de Marsella se popularizaron, 
     sentando las bases para las interpretaciones modernas. El siglo XX trajo consigo el influyente Tarot Rider-Waite-Smith, que 
-    estandarizó muchas de las imágenes y significados actuales, consolidando su uso como herramienta de 
-    autoconocimiento y adivinación.
+    estandarizo muchas de las imagenes y significados actuales, consolidando su uso como herramienta de 
+    autoconocimiento y adivinacion.
     """
