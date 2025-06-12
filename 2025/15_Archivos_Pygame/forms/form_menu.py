@@ -22,7 +22,7 @@ def mostrar_menu(pantalla:pg.Surface,cola_eventos:list[pg.event.Event]) -> str:
                 retorno = "configuracion"
                 var.CLICK_SONIDO.play()
             if lista_botones[var.BOTON_RANKINGS]["rectangulo"].collidepoint(evento.pos):
-                retorno = "puntuaciones"
+                retorno = "historia"
                 var.CLICK_SONIDO.play()
             if lista_botones[var.BOTON_SALIR]["rectangulo"].collidepoint(evento.pos):
                 retorno = "salir"
@@ -38,7 +38,7 @@ def mostrar_menu(pantalla:pg.Surface,cola_eventos:list[pg.event.Event]) -> str:
         
     aux.mostrar_texto(lista_botones[var.BOTON_JUGAR]["superficie"],"JUGAR",(75,20),var.FUENTE_30,var.COLOR_BLANCO)
     aux.mostrar_texto(lista_botones[var.BOTON_AJUSTES]["superficie"],"AJUSTES",(60,20),var.FUENTE_30,var.COLOR_BLANCO)
-    aux.mostrar_texto(lista_botones[var.BOTON_RANKINGS]["superficie"],"RANKINGS",(50,20),var.FUENTE_30,var.COLOR_BLANCO)
+    aux.mostrar_texto(lista_botones[var.BOTON_RANKINGS]["superficie"],"HISTORIA",(50,20),var.FUENTE_30,var.COLOR_BLANCO)
     aux.mostrar_texto(lista_botones[var.BOTON_SALIR]["superficie"],"SALIR",(75,20),var.FUENTE_30,var.COLOR_BLANCO)
     
     return retorno

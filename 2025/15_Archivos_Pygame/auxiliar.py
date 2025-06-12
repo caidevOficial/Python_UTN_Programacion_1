@@ -116,3 +116,9 @@ def crear_lista_botones(cantidad: int, dimension: tuple, color: str = 'purple'):
         boton["superficie"].fill(pg.Color(color))
         lista_botones.append(boton)
     return lista_botones
+
+def iniciar_musica(datos_juego: dict):
+    porcentaje_coma = datos_juego["volumen_musica"] / 100
+    pg.mixer.music.load(var.RUTA_MUSICA)
+    pg.mixer.music.set_volume(porcentaje_coma)
+    pg.mixer.music.play(-1)

@@ -1,8 +1,10 @@
 import pygame as pg
 import variables as var
+import auxiliar as aux
 import forms.form_menu as menu
 import forms.form_opciones as opciones
 import forms.form_juego as juego
+import forms.form_historia as historia
 
 def pythonisa():
     
@@ -25,16 +27,16 @@ def pythonisa():
             ventana_actual = menu.mostrar_menu(pantalla,cola_eventos)
         elif ventana_actual == "juego":
             if bandera_juego == False:
-                porcentaje_coma = datos_juego["volumen_musica"] / 100
-                pg.mixer.music.load(var.RUTA_MUSICA)
-                pg.mixer.music.set_volume(porcentaje_coma)
-                pg.mixer.music.play(-1)
+                aux.iniciar_musica(datos_juego)
                 bandera_juego = True
             ventana_actual, bandera_juego = juego.mostrar_juego(pantalla,cola_eventos,datos_juego)
         elif ventana_actual == "configuracion":
             ventana_actual = opciones.mostrar_ajustes(pantalla,cola_eventos,datos_juego)
-        # elif ventana_actual == "puntuaciones":
-        #     ventana_actual = mostrar_rankings(pantalla,cola_eventos)
+        elif ventana_actual == "historia":
+            if bandera_juego == False:
+                aux.iniciar_musica(datos_juego)
+                bandera_juego = True
+            ventana_actual, bandera_juego = historia.mostrar_historia(pantalla, cola_eventos)
         elif ventana_actual == "terminado":
             pass
         elif ventana_actual == "salir":

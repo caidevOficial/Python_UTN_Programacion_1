@@ -38,3 +38,17 @@ lista_frases = [
     {"frase": "Tranquilidad es algo que no tenes, desde que empezaste a usar pandas con DataFrames gigantes."},
     {"frase": "Tranquilidad es algo que no tenes, desde que te pidieron hacer un deploy en produccion."}
 ]
+
+historia =\
+    """
+    El origen del tarot es un enigma, aunque se cree que surge en la Italia del siglo XV como un juego de cartas, 
+    conocido como "cartas del triunfo" o "tarocchi". Estas barajas no tenían un propósito adivinatorio, sino que se utilizaban para el 
+    entretenimiento y la nobleza las encargaba a artistas reconocidos.
+
+    No es hasta el siglo XVIII cuando el tarot adquiere una connotación esotérica y se relaciona con la adivinación. 
+    Etteilla (Jean-Baptiste Alliette) y Antoine Court de Gébelin fueron figuras clave en esta transformación, asociando el tarot con el 
+    antiguo Egipto y la cábala. Durante el siglo XIX, con el auge del ocultismo, barajas como el Tarot de Marsella se popularizaron, 
+    sentando las bases para las interpretaciones modernas. El siglo XX trajo consigo el influyente Tarot Rider-Waite-Smith, que 
+    estandarizó muchas de las imágenes y significados actuales, consolidando su uso como herramienta de 
+    autoconocimiento y adivinación.
+    """
