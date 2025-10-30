@@ -1,0 +1,44 @@
+{
+    "anectodas": "Va a llover",
+    "gastos": [
+        1,
+        26,
+        540,
+        15400,
+        250000
+    ],
+    "nombres": [
+        {
+            "nombre": "Pepe",
+            "apellido": "Argento"
+        },
+        {
+            "nombre": "Moni",
+            "apellido": "Argento"
+        },
+        {
+            "nombre": "Fatiga",
+            "apellido": "Perrito"
+        },
+        {
+            "nombre": "Dardo",
+            "apellido": "Fuseneco"
+        },
+        {
+            "nombre": "Maria Elena",
+            "apellido": "Fuseneco"
+        },
+        {
+            "nombre": "La Nena",
+            "apellido": "Fuseneco"
+        },
+        {
+            "nombre": "Paola",
+            "apellido": "Argento"
+        },
+        {
+            "nombre": "Coqui",
+            "apellido": "Argento"
+        }
+    ]
+}

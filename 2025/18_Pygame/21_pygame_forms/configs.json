@@ -1,0 +1,9 @@
+{
+    "nivel_1": {
+        "ruta_mazo": "./assets/decks/raider_waite",
+        "coordenada_mazo_1": [340,106],
+        "coordenada_mazo_2": [690,106]
+    },
+    "nivel_2": {},
+    "nivel_3": {}
+}
